@@ -1,0 +1,15 @@
+.btn{
+    padding: 5px;
+    width: 150px;
+    background-color: var(--mainColor);
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s;
+
+}
+.btn:hover{
+    background-color: white;
+    color: var(--mainColor);
+    border: 1px solid var(--mainColor);
+}

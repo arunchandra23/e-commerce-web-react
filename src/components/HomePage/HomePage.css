@@ -1,0 +1,30 @@
+.category-btns{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* min-width: 400px; */
+}
+
+.category-btns button{
+    margin: 5px;
+    width: 200px;
+}
+
+.content{
+    margin: 30px;
+}
+.home-items {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+@media (min-width: 600px) {
+    .home-items { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1200px) {
+    .home-items { grid-template-columns: repeat(3, 1fr); }
+  }
+  

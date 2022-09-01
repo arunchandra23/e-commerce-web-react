@@ -1,0 +1,11 @@
+.align-side-by-side{
+    display: flex;
+    /* justify-content: center; */
+}
+.m-10{
+    margin: 10px;
+}
+.m-auto-w-80vw{
+    margin: auto;
+    width: 80vw;
+}
