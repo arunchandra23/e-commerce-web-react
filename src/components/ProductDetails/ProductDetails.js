@@ -37,7 +37,6 @@ const ProductDetails = ({ selectedItem, getSelectedData, addToCart }) => {
           id="addToCartBtn"
           className="btn"
           onClick={() => {
-            console.log(selectedItem);
             addToCart(selectedItem);
             getStatus();
           }}

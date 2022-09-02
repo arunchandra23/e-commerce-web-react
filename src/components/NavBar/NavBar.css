@@ -6,7 +6,7 @@
     --fontMain:'Lato', sans-serif;
     --fontSec:'Lato', sans-serif;
     /* --mainColor:rgb(99, 233, 211); */
-    --mainColor:rgb(236, 221, 233);
+    --mainColor:rgb(235, 196, 227);
 }
 
 header{
@@ -35,7 +35,7 @@ ul li{
     border: 2px solid black;
     border-radius: 10px;
     padding: 5px;
-    width: 20vw;
+    width: 30vw;
 }
 .nav-element button{
     font-family: var(--fontMain);
@@ -63,4 +63,55 @@ ul li{
     color: #fff;
     padding: 0 5px;
     vertical-align: top;
+}
+
+.burger{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    display: none;
+    cursor: pointer;
+}
+.l1,.l2,.l3{
+    background-color: black;
+    width: 30px;
+    height: 5px;
+    margin: 4px;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+/* 
+@media screen and (max-width:600px){
+    .burger{
+        display: block;
+    }
+    .search-bar{
+        display: none;
+    }
+    .cart-icon{
+        display: none;
+    }
+    .cart-badge{
+        display: none;
+    }
+    #logo{
+        justify-content: center;
+    }
+    .l1{
+        transform: rotate(120deg);
+        background-color: red;
+        margin: 0;
+    }
+    .l2{
+        display: none;
+    }
+    .l3{
+        transform: rotate(-120deg);
+        background-color: red;
+        margin: 0;
+
+    }
+} */
+.nav-hidden{
+    display: none;
 }

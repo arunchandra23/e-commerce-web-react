@@ -18,7 +18,6 @@ const HomePage = ({ getData, data, categoryData, updateCategoryData }) => {
   const getCatecoryData = (category) => {
     const categoryData = data.filter((item) => {
       if (item.category === category) {
-        console.log("getCatecoryData", item);
         return item;
       }
       return null;
@@ -28,7 +27,6 @@ const HomePage = ({ getData, data, categoryData, updateCategoryData }) => {
   let renderedList;
   if (categoryData !== []) {
     renderedList = categoryData.map((item) => {
-      console.log(item);
       return <HomeItem key={item.id} itemObj={item} />;
     });
   } else {
@@ -43,7 +41,6 @@ const HomePage = ({ getData, data, categoryData, updateCategoryData }) => {
           type="submit"
           id="men"
           onClick={(e) => {
-            console.log("clicked men");
             getCatecoryData(e.target.innerHTML);
           }}
         >

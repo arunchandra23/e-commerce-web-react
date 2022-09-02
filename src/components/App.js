@@ -6,6 +6,7 @@ import SearchPage from './SearchPage/SearchPage';
 import ProductDetails from './ProductDetails/ProductDetails';
 import NavBar from './NavBar/NavBar';
 import Cart from './Cart/Cart';
+import Footer from './Footer/Footer';
 
 
 export default class App extends Component {
@@ -22,6 +23,7 @@ export default class App extends Component {
 
                     <Route path='*' element={<HomePage/>}/>
                 </Routes>
+                <Footer/>
             </BrowserRouter>
         </>
     );

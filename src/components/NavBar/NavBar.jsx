@@ -2,11 +2,10 @@ import React, { useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { setSearchTerm } from "../../redux/actions";
-import "./NavBar.css";
-import "font-awesome/css/font-awesome.min.css";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import "./NavBar.css";
 
 const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
   const navigate = useNavigate();
@@ -26,7 +25,7 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
   const commands = [
     {
       command: '*',
-      callback: () => setSearchTerm(transcript)
+      callback: () => {setSearchTerm(transcript); navigate(`/products/search`);}
     }
   ]
 
@@ -56,10 +55,53 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
   return (
     <>
       <header>
+        <div className="nav-hidden">
         <ul>
           <li>
-            <NavLink to="/" className="nav-element">
-              Arch
+            <NavLink to="/" className="nav-element" id="logo">
+              The Arch Studio
+            </NavLink>
+          </li>
+          
+          <li>
+            <form
+              onSubmit={(e) => {
+                onSearchSubmit(e);
+              }}
+            >
+              <input
+                className="search-bar"
+                id="search-bar"
+                ref={searchRef}
+                value={searchTerm}
+                type="text"
+                // value={transcript}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  if((e.target.value!=='')){
+                    navigate(`/products/search`);
+                  }
+                }}
+              />
+            </form>
+          </li>
+          
+          <li>
+            <NavLink to="/products" className="nav-element">
+                {getAuthBtn()}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/cart" className="nav-element">
+              
+            </NavLink>
+          </li>
+          </ul>
+        </div>
+        <ul>
+          <li>
+            <NavLink to="/" className="nav-element" id="logo">
+              The Arch Studio
             </NavLink>
           </li>
           {/* <li>
@@ -82,6 +124,9 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
                 // value={transcript}
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
+                  if((e.target.value!=='')){
+                    navigate(`/products/search`);
+                  }
                 }}
               />
             </form>
@@ -92,8 +137,9 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="20"
+              style={{cursor: "pointer"}}
               fill={listening?'red':'currentColor'}
-              className="bi bi-mic-fill"
+              className="bi bi-mic-fill nav-element mic"
               viewBox="0 0 16 16"
             >
               <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z" />
@@ -102,7 +148,7 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
           </li>
           <li>
             <NavLink to="/products" className="nav-element">
-              <button type="submit" disabled>
+              <button type="submit" style={{display:'none'}} disabled>
                 {getAuthBtn()}
               </button>
             </NavLink>
@@ -120,6 +166,13 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
               </svg>
               <span className="cart-badge">{cartItems}</span>
             </NavLink>
+          </li>
+          <li>
+            <div className="burger" onClick={()=>{document.querySelector('burger').classList.toggle('show-nav') }}>
+              <div className="l1"> </div>
+              <div className="l2"> </div>
+              <div className="l3"> </div>
+            </div>
           </li>
         </ul>
       </header>

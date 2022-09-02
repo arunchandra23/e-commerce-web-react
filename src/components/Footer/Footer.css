@@ -1,0 +1,15 @@
+footer{
+    /* background-color: var(--mainColor); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position:static;
+    bottom: 0px;
+    width: 100%;
+    box-shadow: 1px -2px 1px 1px rgba(0, 0, 0, 0.121);
+    margin-top: 30px;
+}
+footer p{
+    padding: 5px 5px 5px 5px;
+}
