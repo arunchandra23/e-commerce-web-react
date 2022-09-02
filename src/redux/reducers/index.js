@@ -4,6 +4,7 @@ import setDataReducer from "./setDataReducer";
 import setSelectedReducer from "./setSelectedReducer";
 import addToCartReducer from './addToCartReducer'
 import updateCategoryDataReducer from "./updateCategoryDataReducer";
+import setSpeechResponseReducer from "./setSpeechResponseReducer";
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
     data:setDataReducer,
     selectedItem: setSelectedReducer,
     cart: addToCartReducer,
-    categoryData:updateCategoryDataReducer
+    categoryData:updateCategoryDataReducer,
+    speechText:setSpeechResponseReducer
 });

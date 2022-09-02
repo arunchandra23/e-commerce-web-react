@@ -45,4 +45,11 @@ export const getData=()=>async (dispatch) => {
 
   }
 
+  export const setSpeechResponse=(response)=>{
+    return{
+      type:'SET_SPEECH_RESPONSE',
+      payload:response
+    }
+  }
+
  
