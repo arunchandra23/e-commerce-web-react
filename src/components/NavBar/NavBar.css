@@ -1,64 +1,74 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
-:root{
-    --fontMain:'Lato', sans-serif;
-    --fontSec:'Lato', sans-serif;
+
+:root {
+    --fontMain: 'Lato', sans-serif;
+    --fontSec: 'Lato', sans-serif;
     /* --mainColor:rgb(99, 233, 211); */
     /* --mainColor:rgb(235, 196, 227); */
-    --mainColor:black;
+    --mainColor: black;
 }
 
-header{
+header {
     /* offset-x | offset-y | blur-radius | spread-radius | color */
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    position:sticky;
-    top:0px;
-    z-index:1;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
 }
-ul{
+
+ul {
     background-color: white;
     height: 50px;
     font-family: var(--fontMain);
 }
-header ul{
+
+header ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-ul li{
+
+ul li {
     list-style: none;
     text-decoration: none;
-    
+
 }
-.search-bar{
+
+.search-bar {
     border: 2px solid var(--mainColor);
     border-radius: 10px;
     padding: 5px;
     width: 30vw;
 }
-.nav-element button{
+
+.nav-element button {
     font-family: var(--fontMain);
 }
-.nav-element{
+
+.nav-element {
     text-decoration: none !important;
     color: var(--mainColor);
     /* background-color: red; */
     border: none;
-    font-weight:bolder;
+    font-weight: bolder;
 }
+
 .cart-icon:hover,
-.nav-element:hover{
+.nav-element:hover {
     color: rgba(0, 0, 0, 0.701) !important;
     transition: color 0.1s ease-in-out;
-    
+
 }
-.cart-icon{
+
+.cart-icon {
     color: black;
     fill: var(--mainColor);
 }
-.cart-badge{
+
+.cart-badge {
     font-size: 12px;
     background: var(--mainColor);
     border-radius: 10px;
@@ -67,14 +77,17 @@ ul li{
     vertical-align: top;
 }
 
-.burger{
+.burger {
     /* background-color: red; */
     display: flex;
     flex-direction: column;
     display: none;
     cursor: pointer;
 }
-.l1,.l2,.l3{
+
+.l1,
+.l2,
+.l3 {
     background-color: black;
     width: 30px;
     height: 5px;
@@ -82,6 +95,7 @@ ul li{
     box-sizing: border-box;
     transition: all 0.3s;
 }
+
 /* 
 @media screen and (max-width:600px){
     .burger{
@@ -115,20 +129,21 @@ ul li{
     }
 } */
 
-.nav-hidden{
+.nav-hidden {
     display: none;
 }
 
 
 @keyframes pulsate {
     0% {
-      -webkit-transform: scale(1, 1);
-      opacity: 1;
-      color: red;
+        fill: red;
+        -webkit-transform: scale(1, 1);
+        opacity: 1;
     }
+
     100% {
-      -webkit-transform: scale(1.1, 1.1);
-      color: red;
-      opacity: 0.5;
+        fill: red;
+        -webkit-transform: scale(1.07, 1.07);
+        opacity: 0.5;
     }
 }

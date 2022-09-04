@@ -24,10 +24,13 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
 
   const commands = [
     {
-      command: '*',
-      callback: () => {setSearchTerm(transcript); navigate(`/products/search`);}
-    }
-  ]
+      command: "*",
+      callback: () => {
+        setSearchTerm(transcript);
+        navigate(`/products/search`);
+      },
+    },
+  ];
 
   const {
     transcript,
@@ -35,20 +38,15 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
     // resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition({ commands });
-  if (!browserSupportsSpeechRecognition) {
-    return <span>Browser doesn't support speech recognition.</span>;
-  }
-
 
   //Ends SpeechRecognition
 
   const handleMic = () => {
-    if(listening){
+    if (listening) {
       SpeechRecognition.stopListening();
       // SpeechRecognition.abortListening()
       setSearchTerm(transcript);
-    }
-    else{
+    } else {
       SpeechRecognition.startListening();
     }
   };
@@ -56,46 +54,44 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
     <>
       <header>
         <div className="nav-hidden">
-        <ul>
-          <li>
-            <NavLink to="/" className="nav-element" id="logo">
-              The Arch Studio
-            </NavLink>
-          </li>
-          
-          <li>
-            <form
-              onSubmit={(e) => {
-                onSearchSubmit(e);
-              }}
-            >
-              <input
-                className="search-bar"
-                id="search-bar"
-                ref={searchRef}
-                value={searchTerm}
-                type="text"
-                // value={transcript}
-                onChange={(e) => {
-                  setSearchTerm(e.target.value);
-                  if((e.target.value!=='')){
-                    navigate(`/products/search`);
-                  }
+          <ul>
+            <li>
+              <NavLink to="/" className="nav-element" id="logo">
+                The Arch Studio
+              </NavLink>
+            </li>
+
+            <li>
+              <form
+                onSubmit={(e) => {
+                  onSearchSubmit(e);
                 }}
-              />
-            </form>
-          </li>
-          
-          <li>
-            <NavLink to="/products" className="nav-element">
+              >
+                <input
+                  className="search-bar"
+                  id="search-bar"
+                  ref={searchRef}
+                  value={searchTerm}
+                  type="text"
+                  // value={transcript}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                    if (e.target.value !== "") {
+                      navigate(`/products/search`);
+                    }
+                  }}
+                />
+              </form>
+            </li>
+
+            <li>
+              <NavLink to="/products" className="nav-element">
                 {getAuthBtn()}
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/cart" className="nav-element">
-              
-            </NavLink>
-          </li>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/cart" className="nav-element"></NavLink>
+            </li>
           </ul>
         </div>
         <ul>
@@ -124,7 +120,7 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
                 // value={transcript}
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
-                  if((e.target.value!=='')){
+                  if (e.target.value !== "") {
                     navigate(`/products/search`);
                   }
                 }}
@@ -132,24 +128,32 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
             </form>
           </li>
           <li>
-            <svg
-              onClick={()=>{handleMic();}}
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              style={{cursor: "pointer",animation: listening?'pulsate infinite 1.5s':''}}
-              fill='currentColor'
-            
-              className="bi bi-mic-fill nav-element mic"
-              viewBox="0 0 16 16"
-            >
-              <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z" />
-              <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
-            </svg>
+            {!browserSupportsSpeechRecognition ? (
+              ''
+            ) : (
+              <svg
+                onClick={() => {
+                  handleMic();
+                }}
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                style={{
+                  cursor: "pointer",
+                  animation: listening ? "pulsate infinite 1.5s" : "",
+                }}
+                // fill='currentColor'
+                className="bi bi-mic-fill nav-element mic"
+                viewBox="0 0 16 16"
+              >
+                <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z" />
+                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
+              </svg>
+            )}
           </li>
           <li>
             <NavLink to="/products" className="nav-element">
-              <button type="submit" style={{display:'none'}} disabled>
+              <button type="submit" style={{ display: "none" }} disabled>
                 {getAuthBtn()}
               </button>
             </NavLink>
@@ -169,7 +173,12 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
             </NavLink>
           </li>
           <li>
-            <div className="burger" onClick={()=>{document.querySelector('burger').classList.toggle('show-nav') }}>
+            <div
+              className="burger"
+              onClick={() => {
+                document.querySelector("burger").classList.toggle("show-nav");
+              }}
+            >
               <div className="l1"> </div>
               <div className="l2"> </div>
               <div className="l3"> </div>
@@ -181,6 +190,10 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
   );
 };
 const mapStatesToProps = (state) => {
-  return { searchTerm:state.searchTerm ,cartItems: state.cart.length, speechText: state.speechText };
+  return {
+    searchTerm: state.searchTerm,
+    cartItems: state.cart.length,
+    speechText: state.speechText,
+  };
 };
 export default connect(mapStatesToProps, { setSearchTerm })(NavBar);
