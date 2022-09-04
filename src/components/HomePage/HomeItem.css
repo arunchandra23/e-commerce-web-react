@@ -10,7 +10,8 @@
     justify-content: space-around;
     height: 100%;
     padding: 30px;
-    background-color: var(--mainColor);
+    /* background-color: var(--mainColor); */
+    border: 2px solid var(--mainColor);
     border-radius: 10px;
     transition: box-shadow 0.3s;
 
@@ -37,15 +38,15 @@
 }
 .home-item button{
     padding: 5px;
-    background-color: var(--mainColor);
-    border: 1px solid white;
-    color: white;
+    background-color: white;
+    border: 1px solid var(--mainColor);
+    color: var(--mainColor);
     border-radius: 5px;
 
 }
 .home-item button:hover{
 
-    background-color: white;
-    color: var(--mainColor);
+    background-color: var(--mainColor);
+    color: white;
     border: 1px solid var(--mainColor);
 }

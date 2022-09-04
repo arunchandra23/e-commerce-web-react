@@ -45,7 +45,7 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
   const handleMic = () => {
     if(listening){
       SpeechRecognition.stopListening();
-      SpeechRecognition.abortListening()
+      // SpeechRecognition.abortListening()
       setSearchTerm(transcript);
     }
     else{

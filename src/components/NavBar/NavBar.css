@@ -6,7 +6,8 @@
     --fontMain:'Lato', sans-serif;
     --fontSec:'Lato', sans-serif;
     /* --mainColor:rgb(99, 233, 211); */
-    --mainColor:rgb(235, 196, 227);
+    /* --mainColor:rgb(235, 196, 227); */
+    --mainColor:black;
 }
 
 header{
@@ -32,7 +33,7 @@ ul li{
     
 }
 .search-bar{
-    border: 2px solid black;
+    border: 2px solid var(--mainColor);
     border-radius: 10px;
     padding: 5px;
     width: 30vw;
@@ -42,23 +43,24 @@ ul li{
 }
 .nav-element{
     text-decoration: none !important;
-    color: black;
+    color: var(--mainColor);
     /* background-color: red; */
     border: none;
     font-weight:bolder;
 }
+.cart-icon:hover,
 .nav-element:hover{
-    color: var(--mainColor);
+    color: rgba(0, 0, 0, 0.701) !important;
     transition: color 0.1s ease-in-out;
     
 }
 .cart-icon{
     color: black;
-    fill: black;
+    fill: var(--mainColor);
 }
 .cart-badge{
     font-size: 12px;
-    background: black;
+    background: var(--mainColor);
     border-radius: 10px;
     color: #fff;
     padding: 0 5px;
