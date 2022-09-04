@@ -114,6 +114,26 @@ ul li{
 
     }
 } */
+
 .nav-hidden{
     display: none;
+}
+
+/* .mic{
+    background-color: red;
+    padding: 2px;
+    border-radius: 10px;
+} */
+
+@keyframes pulsate {
+    0% {
+      -webkit-transform: scale(1, 1);
+      opacity: 1;
+      color: red;
+    }
+    100% {
+      -webkit-transform: scale(1.1, 1.1);
+      color: red;
+      opacity: 0.5;
+    }
 }

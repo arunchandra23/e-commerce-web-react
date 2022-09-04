@@ -137,8 +137,9 @@ const NavBar = ({ searchTerm, setSearchTerm, cartItems }) => {
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="20"
-              style={{cursor: "pointer"}}
-              fill={listening?'red':'currentColor'}
+              style={{cursor: "pointer",animation: listening?'pulsate infinite 1.5s':''}}
+              fill='currentColor'
+            
               className="bi bi-mic-fill nav-element mic"
               viewBox="0 0 16 16"
             >
